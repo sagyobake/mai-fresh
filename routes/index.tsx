@@ -1,3 +1,30 @@
+const heart = () => {
+    const array_obj = [];
+
+    for (let i = -1; i <= 1.6; i += 0.002) { //0.015
+        for (let j = -1; j <= 1.6; j += 0.002) { //0.015
+            const a = i ** 2 + (j - Math.cbrt(i ** 2)) ** 2;
+            if (a > 0.995 && a < 1.005) {
+                array_obj.push(
+                    <div class='dot'
+                        style={
+                            {
+                                left: `${50 + i * 30}dvmin`,
+                                top: `${50 + (-1 * j) * 30}dvmin`,
+                            }
+                        }>
+                    </div>
+                )
+            }
+        }
+    }
+
+    return array_obj;
+};
+
+
+
+
 export default function () {
     return (
         <html>
@@ -14,7 +41,7 @@ export default function () {
                 </header>
 
                 <main>
-
+                    {heart()}
                 </main>
 
                 <footer>
@@ -37,6 +64,9 @@ export default function () {
                     </div>
                 </footer>
 
+                <script>
+                    console.log('ok'); {/* このようにコメントアウトする */}
+                </script>
             </body>
         </html>
     );
