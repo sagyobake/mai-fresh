@@ -1,20 +1,11 @@
 const heart = () => {
     const array_obj = [];
 
-    for (let i = -1; i <= 1.6; i += 0.002) { //0.015
-        for (let j = -1; j <= 1.6; j += 0.002) { //0.015
+    for (let i = -1; i <= 1.6; i += 0.01) { //0.015
+        for (let j = -1; j <= 1.6; j += 0.01) { //0.015
             const a = i ** 2 + (j - Math.cbrt(i ** 2)) ** 2;
-            if (a > 0.995 && a < 1.005) {
-                array_obj.push(
-                    <div class='dot'
-                        style={
-                            {
-                                left: `${50 + i * 30}dvmin`,
-                                top: `${50 + (-1 * j) * 30}dvmin`,
-                            }
-                        }>
-                    </div>
-                )
+            if (a > 0.99 && a < 1.01) {
+                array_obj.push({ i, j });
             }
         }
     }
@@ -22,6 +13,51 @@ const heart = () => {
     return array_obj;
 };
 
+const heart_array = heart();
+//console.log(heart_array);
+
+const singleHeart = (m, n) => {
+    const single_array = [];
+    let width = m;
+    let height = n;
+
+    heart_array.forEach(element => {
+        const x = element['i'];
+        const y = element['j'];
+        //console.log(x, y);
+        single_array.push(
+            <div class='dot'
+                style={
+                    {
+                        left: `${50 + x * width}dvmin`,
+                        top: `${50 + (-1 * y) * height}dvmin`,
+                    }
+                }>
+            </div>
+        );
+    });
+    //console.log(single_array);
+
+    return single_array;
+}
+
+
+
+
+const heartLayer = () => {
+
+    let a = 0;
+    let b = 0.01;
+
+    let layerArray = [];
+    for (let i = 30; i > 0.4; i -= a) {
+        b += 0.006;
+        a = b ** 1.00001;
+        console.log(a);
+        layerArray.push(singleHeart(i, i));
+    }
+    return layerArray;
+}
 
 
 
@@ -41,7 +77,7 @@ export default function () {
                 </header>
 
                 <main>
-                    {heart()}
+                    {heartLayer()}
                 </main>
 
                 <footer>
@@ -63,10 +99,6 @@ export default function () {
                         </a>
                     </div>
                 </footer>
-
-                <script>
-                    console.log('ok'); {/* このようにコメントアウトする */}
-                </script>
             </body>
         </html>
     );
