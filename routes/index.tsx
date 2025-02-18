@@ -46,14 +46,9 @@ const singleHeart = (m, n) => {
 
 const heartLayer = () => {
 
-    let a = 0;
-    let b = 0.01;
-
     let layerArray = [];
-    for (let i = 30; i > 0.4; i -= a) {
-        b += 0.006;
-        a = b ** 1.00001;
-        console.log(a);
+
+    for (let i = 30; i > 0.5; i -= 1) {
         layerArray.push(singleHeart(i, i));
     }
     return layerArray;
