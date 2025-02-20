@@ -1,10 +1,11 @@
 const heartFunc = () => {
     const array = [];
 
-    const e = Math.exp(1); //ここにネイピア数が登場！　きもちぃーーーーｗｗｗ−
+    const e = Math.exp(1); 
 
-    for (let x = -e; x <= e; x += 0.006) {
-        const y = Math.sin(Math.PI ** 3 * x) * Math.sqrt((Math.exp(1) ** 2 - x ** 2) / 2) + Math.sqrt(Math.abs(x))
+    for (let x = -e; x <= e; x += 0.0004) {
+        
+        const y = Math.sin(4 * Math.PI ** 3 * x) * Math.sqrt((Math.exp(1) ** 2 - x ** 2) / 2) + Math.sqrt(Math.abs(x))
 
         console.log(x, y);
 
