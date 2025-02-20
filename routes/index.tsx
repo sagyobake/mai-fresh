@@ -15,8 +15,10 @@ const heart = () => {
 
 const heart_array = heart();
 //console.log(heart_array);
-
+let element_counter = 0;
 const singleHeart = (m, n) => {
+    element_counter++;
+
     const single_array = [];
     let width = m;
     let height = n;
@@ -24,8 +26,8 @@ const singleHeart = (m, n) => {
     heart_array.forEach(element => {
         const x = element['i'];
         const y = element['j'];
-        //console.log(x, y);
         single_array.push(
+
             <div class='dot'
                 style={
                     {
@@ -36,12 +38,10 @@ const singleHeart = (m, n) => {
             </div>
         );
     });
-    //console.log(single_array);
 
+    console.log(single_array.length * element_counter);
     return single_array;
 }
-
-
 
 
 const heartLayer = () => {
@@ -51,8 +51,33 @@ const heartLayer = () => {
     for (let i = 30; i > 0.5; i -= 1) {
         layerArray.push(singleHeart(i, i));
     }
+
     return layerArray;
 }
+
+const sinWave = () => {
+    const element = [];
+    for (let i = 0; i < 100; i += 0.1) {
+        const x = i;
+        const y = Math.sin(x);
+
+        console.log(x, y);
+
+        element.push(
+            <div class="sin"
+                style={
+                    {
+                        left: `${x}dvmin`,
+                        bottom: `${2 + y}dvmin`,
+                    }
+                }>
+            </div>
+        );
+    }
+    return element;
+}
+
+
 
 
 export default function () {
@@ -72,6 +97,7 @@ export default function () {
 
                 <main>
                     {heartLayer()}
+                    {sinWave()}
                 </main>
 
                 <footer>

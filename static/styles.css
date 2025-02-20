@@ -10,6 +10,14 @@ h1 {
     background-color: pink;
 }
 
+.sin {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background-color: green;
+}
+
 footer {
     position: absolute;
     top: 80dvmin;
