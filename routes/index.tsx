@@ -67,8 +67,8 @@ const sinWave = () => {
             <div class="sin"
                 style={
                     {
-                        left: `${x}dvmin`,
-                        bottom: `${2 + y}dvmin`,
+                        left: `${2 * x}dvmin`,
+                        bottom: `${2 + 2 * y}dvmin`,
                     }
                 }>
             </div>
