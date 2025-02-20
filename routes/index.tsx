@@ -1,86 +1,25 @@
-const heart = () => {
-    const array_obj = [];
-
-    for (let i = -1; i <= 1.6; i += 0.009) { //0.015
-        for (let j = -1; j <= 1.6; j += 0.009) { //0.015
-
-            //const a = i ** 2 + (j - Math.cbrt(i ** 2)) ** 2;
-            const a = i ** 2 + ((11 / 10) * j - Math.sqrt(Math.abs(i))) ** 2;
-
-            if (a > 0.99 && a < 1.01) {
-                array_obj.push({ i, j });
-            }
-        }
-    }
-
-    return array_obj;
-};
-
-const heart_array = heart();
-//console.log(heart_array);
-let element_counter = 0;
-const singleHeart = (m, n) => {
-    element_counter++;
-
-    const single_array = [];
-    let width = m;
-    let height = n;
-
-    heart_array.forEach(element => {
-        const x = element['i'];
-        const y = element['j'];
-        single_array.push(
-
-            <div class='dot'
-                style={
-                    {
-                        left: `${50 + x * width}dvmin`,
-                        top: `${50 + (-1 * y) * height}dvmin`,
-                    }
-                }>
-            </div>
-        );
-    });
-
-    console.log(single_array.length * element_counter);
-    return single_array;
-}
-
-
-const heartLayer = () => {
-
-    let layerArray = [];
-
-    for (let i = 30; i > 0.5; i -= 1) {
-        layerArray.push(singleHeart(i, i));
-    }
-
-    return layerArray;
-}
-
-const sinWave = () => {
-    const element = [];
-    for (let i = 0; i < 100; i += 0.1) {
-        const x = i;
-        const y = Math.sin(x);
+const heartFunc = () => {
+    const array = [];
+    for (let i = 0; i < 600; i++) {
+        const x = 16 * Math.sin(i) ** 3;
+        const y = 13 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i);
 
         console.log(x, y);
 
-        element.push(
-            <div class="sin"
-                style={
-                    {
-                        left: `${2 * x}dvmin`,
-                        bottom: `${2 + 2 * y}dvmin`,
-                    }
-                }>
-            </div>
-        );
+        for (let i = 2; i > 0; i -= 0.02) {
+            array.push(
+                <div class='dot' style={{
+                    left: `${50 + (i * x)}dvmin`,
+                    top: `${40 + (-1 * (i * y))}dvmin`,
+                }}></div>
+            );
+        }
+
     }
-    return element;
+    return array;
 }
 
-
+console.log(heartFunc());
 
 
 export default function () {
@@ -99,8 +38,7 @@ export default function () {
                 </header>
 
                 <main>
-                    {heartLayer()}
-                    {sinWave()}
+                    {heartFunc()}
                 </main>
 
                 <footer>

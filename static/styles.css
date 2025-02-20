@@ -6,17 +6,9 @@ h1 {
     position: absolute;
     width: 1px;
     height: 1px;
-    border-radius: 50%;
     background-color: pink;
 }
 
-.sin {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    border-radius: 50%;
-    background-color: green;
-}
 
 footer {
     position: absolute;
