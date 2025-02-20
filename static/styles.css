@@ -17,7 +17,7 @@ h1 {
 
 footer {
     position: absolute;
-    top: 80dvmin;
+    bottom: 10dvmin;
 }
 
 a,a:visited{
