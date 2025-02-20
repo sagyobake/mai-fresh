@@ -1,23 +1,23 @@
 const heartFunc = () => {
     const array = [];
-    for (let i = 0; i < 800; i++) {
-        const x = 16 * Math.sin(i) ** 3;
-        const y = 13 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i);
+
+    const e = Math.exp(1); //ここにネイピア数が登場！　きもちぃーーーーｗｗｗ−
+
+    for (let x = -e; x <= e; x += 0.004) {
+        const y = Math.sin(Math.PI ** 3 * x) * Math.sqrt((Math.exp(1) ** 2 - x ** 2) / 2) + Math.sqrt(Math.abs(x))
 
         console.log(x, y);
 
-        let a = 0.04;
-        for (let i = 2; i > 0; i -= a) {
-            a = a * 1.04;
-            array.push(
-                <div class='dot' style={{
-                    left: `${50 + (i * x)}dvmin`,
-                    top: `${40 + (-1 * (i * y))}dvmin`,
-                }}></div>
-            );
-        }
-
+        array.push(
+            <div class='dot' style={{
+                left: `${50 + (10 * x)}dvmin`,
+                top: `${40 + (-1 * (10 * y))}dvmin`,
+            }}></div>
+        );
     }
+
+
+
     return array;
 }
 
