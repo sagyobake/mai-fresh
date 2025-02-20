@@ -6,7 +6,9 @@ const heartFunc = () => {
 
         console.log(x, y);
 
-        for (let i = 2; i > 0; i -= 0.04) {
+        let a = 0.04;
+        for (let i = 2; i > 0; i -= a) {
+            a = a * 1.04;
             array.push(
                 <div class='dot' style={{
                     left: `${50 + (i * x)}dvmin`,
