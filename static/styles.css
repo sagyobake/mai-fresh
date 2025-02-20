@@ -8,8 +8,8 @@ h1 {
 
 .dot {
     position: absolute;
-    width: 0.2dvmin;
-    height: 0.2dvmin;
+    width: 0.1dvmin;
+    height: 0.1dvmin;
     border-radius:  50%;
     background-color: pink;
 }
