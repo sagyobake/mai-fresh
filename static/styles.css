@@ -4,16 +4,16 @@ h1 {
 
 .dot {
     position: absolute;
-    width: 2px;
-    height: 2px;
+    width: 1px;
+    height: 1px;
     border-radius: 50%;
     background-color: pink;
 }
 
 .sin {
     position: absolute;
-    width: 2px;
-    height: 2px;
+    width: 1px;
+    height: 1px;
     border-radius: 50%;
     background-color: green;
 }

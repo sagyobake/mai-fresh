@@ -1,9 +1,12 @@
 const heart = () => {
     const array_obj = [];
 
-    for (let i = -1; i <= 1.6; i += 0.01) { //0.015
-        for (let j = -1; j <= 1.6; j += 0.01) { //0.015
-            const a = i ** 2 + (j - Math.cbrt(i ** 2)) ** 2;
+    for (let i = -1; i <= 1.6; i += 0.009) { //0.015
+        for (let j = -1; j <= 1.6; j += 0.009) { //0.015
+
+            //const a = i ** 2 + (j - Math.cbrt(i ** 2)) ** 2;
+            const a = i ** 2 + ((11 / 10) * j - Math.sqrt(Math.abs(i))) ** 2;
+
             if (a > 0.99 && a < 1.01) {
                 array_obj.push({ i, j });
             }
