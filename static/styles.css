@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #202020;
 }
 
 h1 {
@@ -10,11 +10,15 @@ h1 {
     position: absolute;
     width: 0.1dvw;
     height: 0.1dvw;
-    background-color: hotpink;
+    background-color: pink;
 }
 
 
 footer {
     position: absolute;
     top: 80dvmin;
+}
+
+a,a:visited{
+    color: #0071d1;/*カラーコードは任意*/
 }
