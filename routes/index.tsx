@@ -1,12 +1,12 @@
 const heartFunc = () => {
     const array = [];
-    for (let i = 0; i < 600; i++) {
+    for (let i = 0; i < 800; i++) {
         const x = 16 * Math.sin(i) ** 3;
         const y = 13 * Math.cos(i) - 5 * Math.cos(2 * i) - 2 * Math.cos(3 * i) - Math.cos(4 * i);
 
         console.log(x, y);
 
-        for (let i = 2; i > 0; i -= 0.02) {
+        for (let i = 2; i > 0; i -= 0.04) {
             array.push(
                 <div class='dot' style={{
                     left: `${50 + (i * x)}dvmin`,

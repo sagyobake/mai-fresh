@@ -4,8 +4,8 @@ h1 {
 
 .dot {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.1dvw;
+    height: 0.1dvw;
     background-color: pink;
 }
 
