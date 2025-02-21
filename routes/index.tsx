@@ -1,11 +1,17 @@
 const heartFunc = (n: number) => { // nはハートの模様を変えるのに用いる引数
     const array = [];
 
-    const e = Math.exp(1);
+    const e = Math.E;
 
+    let a = 1;
     for (let x = -e; x <= e; x += 0.0002) {
 
-        const y = Math.sin(Math.PI ** n * x) * Math.sqrt((Math.exp(1) ** 2 - x ** 2) / 2) + Math.sqrt(Math.abs(x))
+        a++;
+
+        const y =
+            Math.sin(e ** n * x)
+            * Math.sqrt((e ** 2 - x ** 2) / 2)
+            + 1.2 * Math.log1p(Math.abs(x));
 
         console.log(x, y);
 
@@ -37,7 +43,7 @@ export default function () {
                 </header>
 
                 <main>
-                    {heartFunc(7)}
+                    {heartFunc(6)}
                 </main>
 
                 <footer>
