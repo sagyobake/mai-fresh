@@ -1,0 +1,48 @@
+body {
+    background-color: #202020;
+}
+
+h1 {
+    color: pink;
+}
+
+span {
+    color: white;
+    font-size: 6dvmin;
+}
+
+button {
+    width: 10dvmin;
+    height: 10dvmin;
+    font-size: 5dvmin;
+    background-color: gray;
+    border-radius: 20%;
+}
+
+
+.counter {
+    position: absolute;
+    top: 88dvmin;
+    right: 2dvmin;
+}
+
+.dot {
+    position: absolute;
+    width: 0.3dvmin;
+    height: 0.3dvmin;
+    border-radius: 50%;
+    background-color: pink;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 4dvmin;
+    margin: 1dvmin;
+}
+
+a,
+a:visited {
+    color: #0071d1;
+    /*カラーコードは任意*/
+}
