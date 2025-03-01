@@ -1,4 +1,3 @@
-
 Deno.serve(async (req) => {
     if (req.headers.get("upgrade") != "websocket") {
         const url = new URL(req.url);
@@ -18,16 +17,17 @@ Deno.serve(async (req) => {
         }
     }
 
-    
+    //WebSocket
     const { socket, response } = Deno.upgradeWebSocket(req, 0);
     socket.addEventListener("open", () => {
         console.log("a client connected!");
     });
+
     socket.addEventListener("message", (event) => {
         if (event.data === "ping") {
             socket.send("pong");
 
-
+            
         }
     });
     return response;

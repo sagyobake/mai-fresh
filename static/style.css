@@ -9,6 +9,8 @@ html {
 }
 
 body {
+    display: grid;
+    grid-template-rows: auto;
     width: 100dvmin;
     height: 100dvmin;
 }
@@ -21,9 +23,13 @@ header {
 h1 {
     text-align: center;
     color: pink;
-    margin: 2dvmin;
 }
 
+footer {
+    display: grid;
+    align-items: end;
+    margin-bottom: 1dvmin;
+}
 
 ul {
     display: grid;
