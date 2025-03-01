@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    display: grid;
+    place-content: center;
+}
+
+body {
+    width: 100dvmin;
+    height: 100dvmin;
+}
+
+header {
+    display: grid;
+    place-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: pink;
+    margin: 2dvmin;
+}
+
+
+ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+}
+
+li {
+    display: grid;
+    place-content: center;
+    text-align: center;
+}
+
+a:link,
+a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+img {
+    width: 14dvmin;
+    height: 14dvmin;
+    display: block;
+}

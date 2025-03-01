@@ -1,13 +1,24 @@
+
 Deno.serve(async (req) => {
     if (req.headers.get("upgrade") != "websocket") {
-        const html = await Deno.readFile('./index.html');
-        return new Response(html, {
-            status: 200,
-            headers: {
-                "content-type": "text/html",
-            },
-        });
+        const url = new URL(req.url);
+        let filepath = decodeURIComponent(url.pathname);
+        if (filepath === '/') {
+            filepath = '/index.html';
+        }
+        console.log(filepath);
+
+        try {
+            const file = await Deno.open(
+                "static/" + filepath, { read: true }
+            );
+            return new Response(file.readable);
+        } catch {
+            return new Response("404 Not Found", { status: 404 });
+        }
     }
+
+    
     const { socket, response } = Deno.upgradeWebSocket(req, 0);
     socket.addEventListener("open", () => {
         console.log("a client connected!");
@@ -16,12 +27,7 @@ Deno.serve(async (req) => {
         if (event.data === "ping") {
             socket.send("pong");
 
-            const e = Math.E;
-            for (let x = -e; x <= e; x += 0.0001) {
-                const y = Math.sin(e ** 11 * x) * Math.sqrt((e ** 2 - x ** 2) / 1.8)
-                    + Math.log(Math.abs(x) + 0.7);
-                socket.send(JSON.stringify({ x, y }));
-            }
+
         }
     });
     return response;
