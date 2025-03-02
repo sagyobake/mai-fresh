@@ -28,15 +28,28 @@ h1 {
 main {
     display: grid;
     place-content: center;
-    
+
 }
 
 footer {
     display: grid;
 }
 
-small {
+address {
     display: grid;
     align-items: end;
     text-align: center;
+}
+
+a {
+    border: 0.1dvmin solid;
+    padding: 2dvmin;
+    margin: 1dvmin;
+    text-decoration: none;
+}
+
+
+img {
+    width: 10dvmin;
+    height: 10dvmin;
 }
