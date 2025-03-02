@@ -5,8 +5,7 @@ Deno.serve(async (req) => {
         if (filepath === '/') {
             filepath = '/index.html';
         }
-        console.log(filepath);
-
+        console.log(filepath); //アクセスされたファイル名
         try {
             const file = await Deno.open(
                 "static/" + filepath, { read: true }
@@ -19,17 +18,38 @@ Deno.serve(async (req) => {
 
     //WebSocket
     const { socket, response } = Deno.upgradeWebSocket(req, 0);
+
     socket.addEventListener("open", () => {
         console.log("a client connected!");
     });
 
-    socket.addEventListener("message", (event) => {
-        if (event.data === "ping") {
-            socket.send("pong");
+    socket.addEventListener("message", async (event) => {
+        await fetch("https://api.line.me/v2/bot/message/push", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
 
-            
-        }
+                'Authorization': "Bearer EGLpy+QFWeKGUcWztUfJDDJbW0JKuZco6PxrEKgBKg5wWMR6oRj9luSrUYUw8ho4gySPE7Orox662OipmXwmJP9jNEw58rbJVpuCAgUwDClXXmp+fflNyZTJTgm7yHjy36RCnxNe/B2tgDVhxyM6hgdB04t89/1O/w1cDnyilFU=",
+            },
+
+            body: JSON.stringify({
+                "to": "Ua1428322da044757d3e017fc86a54e0b",
+                "messages": [
+                    {
+                        "type": "text",
+                        "text": event.data,
+                    },
+                ],
+            }),
+
+        });
     });
+
+    socket.addEventListener("close", (event) => {
+
+    });
+
+
     return response;
 
 });
