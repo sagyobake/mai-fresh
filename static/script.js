@@ -1,4 +1,5 @@
 
+
 const socket = new WebSocket("ws://localhost:8000");
 //const socket = new WebSocket("wss://mai2.deno.dev");
 socket.addEventListener("open", (e) => {
@@ -8,4 +9,5 @@ socket.addEventListener("open", (e) => {
 socket.addEventListener("message", (e) => {
     console.log(e.data);
 });
+
 

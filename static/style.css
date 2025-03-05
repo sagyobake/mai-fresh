@@ -9,13 +9,8 @@ html {
 }
 
 body {
-    display: grid;
     width: 100dvmin;
     height: 100dvmin;
-}
-
-header {
-    display: grid;
 }
 
 
@@ -27,8 +22,36 @@ h1 {
 
 main {
     display: grid;
+    grid-auto-flow: column;
     place-content: center;
+}
 
+#misanga {
+    position: relative;
+}
+
+.gold {
+    position: absolute;
+    width: 2dvmin;
+    height: 2dvmin;
+    border-radius: 50%;
+    background-color: gold;
+}
+
+.red {
+    position: absolute;
+    width: 2dvmin;
+    height: 2dvmin;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.blue {
+    position: absolute;
+    width: 2dvmin;
+    height: 2dvmin;
+    border-radius: 50%;
+    background-color: blue;
 }
 
 footer {
@@ -46,8 +69,8 @@ a {
     padding: 2dvmin;
     margin: 1dvmin;
     text-decoration: none;
+    text-align: left;
 }
-
 
 img {
     width: 10dvmin;

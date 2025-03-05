@@ -1,5 +1,5 @@
 Deno.serve(async (req) => {
-    if (req.headers.get("upgrade") != "websocket") {
+    if (req.headers.get("upgrade") !== "websocket") {
         const url = new URL(req.url);
         let filepath = decodeURIComponent(url.pathname);
         if (filepath === '/') {
@@ -24,7 +24,9 @@ Deno.serve(async (req) => {
     });
 
     socket.addEventListener("message", async (event) => {
-        
+
+         
+
     });
 
     socket.addEventListener("close", (event) => {
